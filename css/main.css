@@ -2,6 +2,28 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   font-family: sans-serif;
+  margin: 0;
+}
+
+#container {
+  margin: 8px;
+}
+
+#container > header {
+
+}
+
+#contaienr > main {
+
+}
+
+#container > footer {
+
+}
+
+
+.hide {
+  display: none !important;
 }
