@@ -16,15 +16,20 @@
     <h1>XR Shop</h1>
   </header>
   <main>
+
     <div id="model">
+       <model-viewer src="models/s10-scaled.glb" ar ar-scale="auto" camera-controls alt="Samsung Galaxy S10"></model-viewer>
     </div>
+
     <div class="heading">
       <h4>Samsung</h4>
       <h3>Galaxy S10</h3>
     </div>
+
     <div class="info">
       <div id="price">$399 <span>+ free shipping</span></div>
       <div class="btn" id="add-cart-btn">Add to Cart</div>
+    </div>
 
     <p class="description">
       The next generation Samsung Galaxy S10 is as powerful, intelligent and intuitive as you are, providing endless possibilities and next- level power in performance, productivity, creation and design. The S10 features pro lenses to capture stunning photos, a powerful processor, and a long-lasting battery to optimize power and performance.
@@ -40,13 +45,13 @@
       </table>
     </div>
 
-    </div>
   </main>
   <footer>
   &copy; 2020 XR Inc.
   </footer>
 </div>
 
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
