@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "brand": "Samsung",
+      "name": "Galaxy S10",
+      "description": "The next generation Samsung Galaxy S10 is as powerful, intelligent and intuitive as you are, providing endless possibilities and next- level power in performance, productivity, creation and design. The S10 features pro lenses to capture stunning photos, a powerful processor, and a long-lasting battery to optimize power and performance.",
+      "specs": [
+        "6.1\" Infinity Display, Quad HD+ Dynamic AMOLED",
+        "12MP Super Speed Dual Pixel ; 16MP Ultra Wide ; 12MP 2x Zoom",
+        "512GB Storage / 8GB RAM",
+        "7nm Octa-core Snapdragon 855",
+        "3,400 mAh ; All-Day Battery ; Wireless PowerShare"
+      ],
+      "model": "models/s10-scaled.glb",
+      "price": 399
+    },
+    {
+      "brand": "Samsung",
+      "name": "{TV Model Here}",
+      "description": "{TV Model Description Here}",
+      "specs": [],
+      "model": "",
+      "price": 1099
+    }
+
+  ]
+}

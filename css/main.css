@@ -79,7 +79,7 @@ html, body {
   padding: 8px 0px;
 }
 
-#price span {
+#price span.note {
   font-size: 16px;
 }
 
