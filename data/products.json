@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "category": "phone",
       "brand": "Samsung",
       "name": "Galaxy S10",
       "description": "The next generation Samsung Galaxy S10 is as powerful, intelligent and intuitive as you are, providing endless possibilities and next- level power in performance, productivity, creation and design. The S10 features pro lenses to capture stunning photos, a powerful processor, and a long-lasting battery to optimize power and performance.",
@@ -15,12 +16,20 @@
       "price": 399
     },
     {
+      "category": "tv",
       "brand": "Samsung",
-      "name": "{TV Model Here}",
-      "description": "{TV Model Description Here}",
-      "specs": [],
+      "name": "65\" Class Q70T QLED 4K UHD HDR Smart TV (2020)",
+      "description": "Equipped with Quantum Dot Technology, this TV unleashes a massive spectrum of a billion shades of color. Samsung's powerful 4K Quantum processor automatically optimizes the picture to deliver a more immersive experience. A sleek, elegant, and minimalistic design from any angle draws you into the screen.",
+      "specs": [
+        "QUANTUM PROCESSOR 4K: This powerful processor uses deep learning AI to transform everything you watch into stunning 4K.",
+        "MOTION RATE 240: Minimizes motion blur on screen, so action-packed movies and sports stay smooth and crisp.",
+        "AMBIENT MODE +: Blends into your space by turning a blank screen into enticing visuals or at-a-glance info.",
+        "QUANTUM HDR: Expands the range of color and detail beyond what's possible on HDTVs.",
+        "DUAL LED: A system of dedicated warm and cool LED backlights enhance contrast details.",
+        "ALEXA BUILT-IN: Voice control your TV and your day, hands-free. Just ask Alexa to change the channel, search for movies, play music, control smart home devices, get sports updates and more."
+      ],
       "model": "",
-      "price": 1099
+      "price": 1199
     }
 
   ]

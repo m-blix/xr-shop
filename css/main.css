@@ -37,8 +37,21 @@ html, body {
 }
 
 #container > main {
-  margin-top: 14px;
+  margin-top: 8px;
   min-height: 300px;
+}
+
+#product-list {
+  margin-bottom: 10px;
+  padding-left: 12px;
+}
+
+#product-list span {
+  margin-right: 12px;
+}
+
+#product-list span:hover {
+  cursor: pointer;
 }
 
 #model {

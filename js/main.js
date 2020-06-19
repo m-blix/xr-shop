@@ -2,7 +2,10 @@
 
 let $ = document.querySelector.bind(document);
 let addCartBtn = $('#add-cart-btn');
+let productList = $('#product-list');
 let cart = $('#cart');
+
+let products = [];
 
 let n = 0;
 
@@ -22,10 +25,20 @@ async function init() {
     n++;
   });
 
+  productList.addEventListener('click', function(e){
+    console.log(e);
+    if (e.target.nodeName !== 'SPAN')
+      return;
+
+    let id = parseInt(e.target.id, 10);
+    displayProduct(products[id]);
+  });
+
+
   let resp = await fetch('data/products.json');
   let data = await resp.json();
-  //console.log(data);
-  let product = data.products[0];
+  products = data.products;
+  let product = products[1];
   displayProduct(product);
 }
 
