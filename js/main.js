@@ -49,6 +49,7 @@ function displayProduct(product) {
   $('#product-name').textContent = product.name;
 
   let specsTable = $('.specs table');
+  specsTable.textContent = '';
   for (let i = 0; i < product.specs.length; i++) {
     let spec = product.specs[i];
     var tr = document.createElement('tr');
