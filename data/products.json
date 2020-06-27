@@ -18,7 +18,7 @@
     {
       "category": "tv",
       "brand": "Samsung",
-      "name": "65\" Class Q70T QLED 4K UHD HDR Smart TV (2020)",
+      "name": "Q70T QLED 4K UHD HDR Smart TV (2020)",
       "description": "Equipped with Quantum Dot Technology, this TV unleashes a massive spectrum of a billion shades of color. Samsung's powerful 4K Quantum processor automatically optimizes the picture to deliver a more immersive experience. A sleek, elegant, and minimalistic design from any angle draws you into the screen.",
       "specs": [
         "QUANTUM PROCESSOR 4K: This powerful processor uses deep learning AI to transform everything you watch into stunning 4K.",
@@ -27,6 +27,23 @@
         "QUANTUM HDR: Expands the range of color and detail beyond what's possible on HDTVs.",
         "DUAL LED: A system of dedicated warm and cool LED backlights enhance contrast details.",
         "ALEXA BUILT-IN: Voice control your TV and your day, hands-free. Just ask Alexa to change the channel, search for movies, play music, control smart home devices, get sports updates and more."
+      ],
+      "sizes": [
+        {
+          "model": "models/Qx0T.glb",
+          "size": "65\"",
+          "price": 1199
+        },
+        {
+          "model": "models/Qx0T.glb",
+          "size": "75\"",
+          "price": 1999
+        },
+        {
+          "model": "models/Qx0T.glb",
+          "size": "85\"",
+          "price": 2499
+        }
       ],
       "model": "models/Qx0T.glb",
       "price": 1199

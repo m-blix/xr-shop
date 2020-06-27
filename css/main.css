@@ -96,6 +96,28 @@ html, body {
   font-size: 16px;
 }
 
+.sizes {
+}
+
+.sizes > span {
+  margin-top: 12px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 10px 30px;
+  display: inline-block;
+  margin-right: 14px;
+  font-size: 18px;
+}
+
+.sizes > span:hover {
+  cursor: pointer;
+}
+
+.sizes > span.selected {
+  border-width: 2px;
+  border-color: #1428a0;
+}
+
 .btn {
   width: 100%;
   text-align: center;
