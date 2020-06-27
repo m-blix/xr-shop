@@ -1,0 +1,17 @@
+{
+  "name": "XR Shop",
+  "short_name": "XR Shop",
+  "description": "Online shop enhanced with XR",
+  "icons": [
+    {
+      "src": "img/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "display": "standalone",
+  "scope": "/xr-shop/",
+  "start_url": "/xr-shop/",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
