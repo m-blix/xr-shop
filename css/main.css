@@ -163,29 +163,3 @@ html, body {
 .hide {
   display: none !important;
 }
-
-/* AR view: overlays */
-
-/* This keeps child nodes hidden while the element loads */
-:not(:defined) > * {
-  display: none;
-}
-
-model-viewer[ar-status="session-started"] > #infobox {
-  display: block;
-}
-
-model-viewer > #infobox {
-  background-color: #fff;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  border-radius: 10px;
-  padding: 10px;
-  display: none;
-}
-
-model-viewer > #infobox .btn {
-  padding: 4px 8px;
-  margin-left: 10px;
-}
