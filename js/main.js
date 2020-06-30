@@ -41,7 +41,7 @@ async function init() {
   let resp = await fetch(PRODUCT_DB);
   let data = await resp.json();
   products = data.products;
-  let product = products[1];
+  let product = products[0];
   displayProduct(product);
 
   sizes.addEventListener('click', function(e){
