@@ -176,7 +176,7 @@ html, body {
 ar-status: ['not-presenting', 'session-started', 'object-placed']
 */
 model-viewer[ar-status="not-presenting"] > #infobox {
-  display: block;
+  display: none;
 }
 
 model-viewer > #infobox {
@@ -188,9 +188,23 @@ model-viewer > #infobox {
   border-radius: 10px;
   padding: 10px;
   width: calc(100% - 2*var(--overlay-margin));
+  max-height: 100px;
+}
+
+model-viewer > #infobox .label {
+  font-size: 16px;
+  width: 75%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 3px;
 }
 
 model-viewer > #infobox .btn {
   padding: 4px 8px;
   margin-left: 10px;
+  margin-right: 2px;
+  float: right;
+  width: auto;
 }
