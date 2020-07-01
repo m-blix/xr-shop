@@ -1,5 +1,6 @@
 :root {
   --border-color: #ccc;
+  --overlay-margin: 10px;
 }
 
 * {
@@ -162,4 +163,34 @@ html, body {
 
 .hide {
   display: none !important;
+}
+
+/* AR view: overlays */
+
+/* This keeps child nodes hidden while the element loads */
+:not(:defined) > * {
+  display: none;
+}
+
+/*
+ar-status: ['not-presenting', 'session-started', 'object-placed']
+*/
+model-viewer[ar-status="not-presenting"] > #infobox {
+  display: block;
+}
+
+model-viewer > #infobox {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: var(--overlay-margin);
+  border-radius: 10px;
+  padding: 10px;
+  width: calc(100% - 2*var(--overlay-margin));
+}
+
+model-viewer > #infobox .btn {
+  padding: 4px 8px;
+  margin-left: 10px;
 }
