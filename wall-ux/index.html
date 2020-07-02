@@ -23,6 +23,10 @@
 			var hitTestSource = null;
 			var hitTestSourceRequested = false;
 
+			const objectLimit = 10;
+			var numObjects = 0;
+
+
 			init();
 			animate();
 
@@ -59,11 +63,19 @@
 
 					if ( reticle.visible ) {
 
+						if ( numObjects == objectLimit ) {
+
+							return;
+
+						}
+
 						var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
 						var mesh = new THREE.Mesh( geometry, material );
 						mesh.position.setFromMatrixPosition( reticle.matrix );
 						mesh.scale.y = Math.random() * 2 + 1;
 						scene.add( mesh );
+
+						numObjects++;
 
 					}
 
