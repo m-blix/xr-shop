@@ -29,8 +29,10 @@ var reticle;
 var hitTestSource = null;
 var hitTestSourceRequested = false;
 
-const objectLimit = 10;
+const OBJECT_LIMIT = 10;
 var numObjects = 0;
+
+var addModel = true;
 
 var loader;
 const MODEL_PATH = '/xr-shop/models/';
@@ -79,17 +81,27 @@ function init() {
 
     if ( reticle.visible ) {
 
-      if ( numObjects == objectLimit ) {
+      if ( numObjects == OBJECT_LIMIT ) {
 
         return;
 
       }
 
-      var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-      var mesh = new THREE.Mesh( geometry, material );
-      mesh.position.setFromMatrixPosition( reticle.matrix );
-      mesh.scale.y = Math.random() * 2 + 1;
-      scene.add( mesh );
+      if ( addModel ) {
+
+        model.position.setFromMatrixPosition( reticle.matrix );
+        scene.add( model );
+        numObjects = OBJECT_LIMIT;
+
+      } else {
+
+        var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.setFromMatrixPosition( reticle.matrix );
+        mesh.scale.y = Math.random() * 2 + 1;
+        scene.add( mesh );
+
+      }
 
       numObjects++;
 
@@ -143,7 +155,7 @@ function setupModel() {
 
     } );
 
-    scene.add( gltf.scene );
+    //scene.add( gltf.scene );
 
     //render();
 
