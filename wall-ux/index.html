@@ -47,8 +47,7 @@ function init() {
 
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
-
+  camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 100 );
 
   var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
   light.position.set( 0.5, 1, 0.25 );
@@ -65,7 +64,10 @@ function init() {
   //
 
   loader = new GLTFLoader().setPath( MODEL_PATH );
-  setupModel();
+  //setupModel();
+
+
+  addObjects();
 
   document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
 
@@ -113,10 +115,25 @@ function init() {
 
 }
 
+function addObjects() {
+
+  var mat = new THREE.MeshBasicMaterial();
+  var geo = new THREE.CylinderBufferGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
+
+  for (var i = 0; i < 100; i++) {
+    var object = new THREE.Mesh(geo, mat);
+
+    object.position.set(Math.random() * 5, Math.random() * 5, Math.random() * 5);
+
+    scene.add(object);
+  }
+
+}
+
 function setupModel() {
   loader.load( modelFile, function ( gltf ) {
 
-    model = scene;
+    model = gltf.scene;
 
     gltf.scene.traverse( function ( child ) {
 
@@ -126,7 +143,7 @@ function setupModel() {
 
     } );
 
-    //scene.add( gltf.scene );
+    scene.add( gltf.scene );
 
     //render();
 
