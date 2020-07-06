@@ -17,6 +17,7 @@
 <script type="module">
 
 import * as THREE from './js/three.module.js';
+import { GLTFLoader } from './js/GLTFLoader.js';
 import { ARButton } from './js/ARButton.js';
 
 var container;
@@ -31,6 +32,10 @@ var hitTestSourceRequested = false;
 const objectLimit = 10;
 var numObjects = 0;
 
+var loader;
+const MODEL_PATH = '/xr-shop/models/';
+const modelFile = 'Qx0T-primary.glb';
+var model;
 
 init();
 animate();
@@ -43,6 +48,7 @@ function init() {
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+
 
   var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
   light.position.set( 0.5, 1, 0.25 );
@@ -57,6 +63,9 @@ function init() {
   container.appendChild( renderer.domElement );
 
   //
+
+  loader = new GLTFLoader().setPath( MODEL_PATH );
+  setupModel();
 
   document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
 
@@ -102,6 +111,26 @@ function init() {
 
   window.addEventListener( 'resize', onWindowResize, false );
 
+}
+
+function setupModel() {
+  loader.load( modelFile, function ( gltf ) {
+
+    model = scene;
+
+    gltf.scene.traverse( function ( child ) {
+
+      if ( child.isMesh ) {
+
+      }
+
+    } );
+
+    //scene.add( gltf.scene );
+
+    //render();
+
+  } );
 }
 
 function onWindowResize() {
