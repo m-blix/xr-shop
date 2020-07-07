@@ -123,9 +123,10 @@ function init() {
     new THREE.MeshBasicMaterial()
   );
 
+  var size = 0.5;
   var smallRing = new THREE.Mesh(
-    new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
-    new THREE.MeshBasicMaterial()
+    new THREE.RingBufferGeometry( 0.15 * size, 0.2 * size, 32 ).rotateX( - Math.PI / 2 ),
+    new THREE.MeshBasicMaterial({ color: 0x3333ff })
   );
   reticle.add( smallRing );
 
