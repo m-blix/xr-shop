@@ -117,18 +117,25 @@ function init() {
   scene.add( controller );
 
   var rHeight = 0.7;
-  var reticleGeo = new THREE.BoxBufferGeometry( 0.4, rHeight, 0.01 ).translate( 0, rHeight/2, 0 );
+  var reticleGeo = new THREE.BoxBufferGeometry( 0.4, rHeight, 0.01 ).translate( 0, rHeight/2 * 1.1, 0 );
   var reticleMaterial = new THREE.MeshBasicMaterial({
     color: 0x44cc33,
     opacity: 0.7,
     transparent: true
   });
-  reticle = new THREE.Mesh(
-    reticleGeo,
-    reticleMaterial
-  );
+  reticle = new THREE.Mesh( reticleGeo, reticleMaterial );
 
-  var size = 0.5;
+  var bHeight = 0.02;
+  var bGeo = new THREE.BoxBufferGeometry( 0.4, bHeight, 0.01 ).translate( 0, bHeight/2, 0 );
+  var bMat = new THREE.MeshBasicMaterial({
+    color: 0x8A2BE2, // purple
+    opacity: 0.7,
+    transparent: true
+  });
+  var bar = new THREE.Mesh( bGeo, bMat );
+  reticle.add( bar );
+
+  var size = 0.4;
   var smallRing = new THREE.Mesh(
     new THREE.RingBufferGeometry( 0.15 * size, 0.2 * size, 32 ).rotateX( - Math.PI / 2 ),
     new THREE.MeshBasicMaterial({ color: 0x3333ff })
