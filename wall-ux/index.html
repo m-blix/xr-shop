@@ -29,15 +29,17 @@ var reticle;
 var hitTestSource = null;
 var hitTestSourceRequested = false;
 
+
 const OBJECT_LIMIT = 10;
 var numObjects = 0;
-
-var addModel = true;
 
 var loader;
 const MODEL_PATH = '/xr-shop/models/';
 const modelFile = 'Qx0T-primary.glb';
 var model;
+var modelPlaced = false;
+
+
 
 init();
 animate();
@@ -58,7 +60,6 @@ function init() {
   //
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
-  renderer.setClearColor( 0x333333, 1 );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
   renderer.xr.enabled = true;
@@ -68,9 +69,6 @@ function init() {
 
   loader = new GLTFLoader().setPath( MODEL_PATH );
   setupModel();
-
-
-  addObjects();
 
   document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
 
@@ -88,26 +86,13 @@ function init() {
 
       }
 
-      if ( addModel ) {
+      model.position.setFromMatrixPosition( reticle.matrix );
+      scene.add( model );
 
-        model.position.setFromMatrixPosition( reticle.matrix );
-        scene.add( model );
+      numObjects = OBJECT_LIMIT;
+      modelPlaced = true;
 
-        numObjects = OBJECT_LIMIT;
-
-        console.log('model added');
-
-      } else {
-
-        var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-        var mesh = new THREE.Mesh( geometry, material );
-        mesh.position.setFromMatrixPosition( reticle.matrix );
-        mesh.scale.y = Math.random() * 2 + 1;
-        scene.add( mesh );
-
-        numObjects++;
-
-      }
+      console.log('model added');
 
     }
 
@@ -153,21 +138,6 @@ function init() {
 
 }
 
-function addObjects() {
-
-  var mat = new THREE.MeshBasicMaterial();
-  var geo = new THREE.CylinderBufferGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
-
-  for (var i = 0; i < 100; i++) {
-    var object = new THREE.Mesh(geo, mat);
-
-    object.position.set(Math.random() * 5, Math.random() * 5, Math.random() * 5);
-
-    scene.add(object);
-  }
-
-}
-
 function setupModel() {
   loader.load( modelFile, function ( gltf ) {
 
@@ -181,11 +151,14 @@ function setupModel() {
 
     } );
 
-    //scene.add( gltf.scene );
-
-    //render();
-
   } );
+}
+
+function reset() {
+
+  modelPlaced = false;
+  numObjects = 0;
+
 }
 
 function onWindowResize() {
