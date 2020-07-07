@@ -29,10 +29,6 @@ var reticle;
 var hitTestSource = null;
 var hitTestSourceRequested = false;
 
-
-const OBJECT_LIMIT = 10;
-var numObjects = 0;
-
 var loader;
 const MODEL_PATH = '/xr-shop/models/';
 const modelFile = 'Qx0T-primary.glb';
@@ -78,19 +74,19 @@ function init() {
 
   function onSelect() {
 
+    if ( modelPlaced ) {
+
+      return;
+
+    }
+
     if ( reticle.visible ) {
-
-      if ( numObjects == OBJECT_LIMIT ) {
-
-        return;
-
-      }
 
       model.position.setFromMatrixPosition( reticle.matrix );
       scene.add( model );
 
-      numObjects = OBJECT_LIMIT;
       modelPlaced = true;
+      reticle.visible = false;
 
       console.log('model added');
 
@@ -157,7 +153,6 @@ function setupModel() {
 function reset() {
 
   modelPlaced = false;
-  numObjects = 0;
 
 }
 
@@ -216,8 +211,9 @@ function render( timestamp, frame ) {
 
         var hit = hitTestResults[ 0 ];
 
-        reticle.visible = true;
         reticle.matrix.fromArray( hit.getPose( referenceSpace ).transform.matrix );
+
+        reticle.visible = true;
 
       } else {
 
@@ -226,6 +222,12 @@ function render( timestamp, frame ) {
       }
 
     }
+
+  }
+
+  if ( modelPlaced ) {
+
+    reticle.visible = false;
 
   }
 
