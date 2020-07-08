@@ -61,7 +61,7 @@ async function init() {
 
     $('#price-unit').textContent = price;
 
-    modelViewer.setAttribute('src', el.dataset.model);
+    modelViewer.setAttribute('src', 'models/s10-scaled.glb'); // test
     console.log('set model to: ' + el.dataset.model);
   });
 }
