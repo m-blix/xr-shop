@@ -76,6 +76,7 @@ function init() {
 
     if ( modelPlaced ) {
 
+      reset();
       return;
 
     }
@@ -153,6 +154,7 @@ function setupModel() {
 function reset() {
 
   modelPlaced = false;
+  scene.remove( model );
 
 }
 
