@@ -84,6 +84,7 @@ function init() {
     if ( reticle.visible ) {
 
       model.position.setFromMatrixPosition( reticle.matrix );
+      model.translateY( modelHeight );
       scene.add( model );
 
       modelPlaced = true;
