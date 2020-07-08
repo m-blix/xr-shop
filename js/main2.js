@@ -1,6 +1,9 @@
 'use strict';
 
 let $ = document.querySelector.bind(document);
+
+let modelViewer = $('model-viewer');
+
 let addCartBtn = $('#add-cart-btn');
 let productList = $('#product-list');
 let sizes = $('.sizes');
@@ -57,6 +60,9 @@ async function init() {
     let price = el.dataset.price;
 
     $('#price-unit').textContent = price;
+
+    modelViewer.setAttribute('src', el.dataset.model);
+    console.log('set model to: ' + el.dataset.model);
   });
 }
 
@@ -96,8 +102,6 @@ function displayProduct(product) {
   }
   $('#price-unit').textContent = price;
 
-
-  let modelViewer = $('model-viewer');
   modelViewer.setAttribute('src', model);
 }
 

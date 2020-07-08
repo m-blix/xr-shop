@@ -98,16 +98,18 @@ html, body {
 }
 
 .sizes {
+  padding-bottom: 7px;
 }
 
 .sizes > span {
-  margin-top: 12px;
+  background-color: #fff;
+  margin-top: 0px;
   border: 1px solid #000;
   border-radius: 3px;
-  padding: 10px 30px;
+  padding: 6px 12px;
   display: inline-block;
-  margin-right: 14px;
-  font-size: 18px;
+  margin-right: 10px;
+  font-size: 14px;
 }
 
 .sizes > span:hover {

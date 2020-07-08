@@ -30,17 +30,22 @@
       ],
       "sizes": [
         {
-          "model": "models/Qx0T-primary.glb",
+          "model": "models/Qx0T-primary-55.glb",
+          "size": "55\"",
+          "price": 999
+        },
+        {
+          "model": "models/Qx0T-primary-65.glb",
           "size": "65\"",
           "price": 1199
         },
         {
-          "model": "models/Qx0T.glb",
+          "model": "models/Qx0T-primary-75.glb",
           "size": "75\"",
           "price": 1999
         },
         {
-          "model": "models/Qx0T.glb",
+          "model": "models/Qx0T-primary-85.glb",
           "size": "85\"",
           "price": 2499
         }
