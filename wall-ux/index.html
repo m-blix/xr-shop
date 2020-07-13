@@ -101,21 +101,24 @@ function init() {
   scene.add( controller );
 
   var bHeight = 0.02;
+  var margin = 0.04;
+  var bWidth = 0.4;
+  var color = 0x8A2BE2; // purple
 
   var rHeight = modelHeight;
 
-  var reticleGeo = new THREE.BoxBufferGeometry( 0.4, rHeight, 0.01 ).translate( 0, rHeight/2 + bHeight * 2, 0 );
+  var reticleGeo = new THREE.BoxBufferGeometry( bWidth, rHeight, 0.01 ).translate( 0, rHeight/2 + bHeight + margin, 0 );
   var reticleMaterial = new THREE.MeshBasicMaterial({
-    color: 0x44cc33,
-    opacity: 0.7,
+    color: color,
+    opacity: 0.4,
     transparent: true
   });
   reticle = new THREE.Mesh( reticleGeo, reticleMaterial );
 
-  var bGeo = new THREE.BoxBufferGeometry( 0.4, bHeight, 0.01 ).translate( 0, bHeight/2, 0 );
+  var bGeo = new THREE.BoxBufferGeometry( bWidth, bHeight, 0.01 ).translate( 0, bHeight/2, 0 );
   var bMat = new THREE.MeshBasicMaterial({
-    color: 0x8A2BE2, // purple
-    opacity: 0.7,
+    color: color,
+    opacity: 0.9,
     transparent: true
   });
   var bar = new THREE.Mesh( bGeo, bMat );
@@ -126,7 +129,7 @@ function init() {
     new THREE.RingBufferGeometry( 0.15 * size, 0.2 * size, 32 ).rotateX( - Math.PI / 2 ),
     new THREE.MeshBasicMaterial({ color: 0x3333ff })
   );
-  reticle.add( smallRing );
+  //reticle.add( smallRing );
 
   reticle.matrixAutoUpdate = false;
   reticle.visible = false;
