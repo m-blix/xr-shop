@@ -244,4 +244,16 @@ model-viewer > #infobox .btn {
   background-color: #333;
   color: white;
   cursor: pointer;
+  float: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#overlay #ar-product-name {
+  background: white;
+  padding: 6px;
+  max-width: 75%;
+  float: left;
+  margin-right: 10px;
 }
