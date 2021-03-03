@@ -2,6 +2,7 @@
 
 let $ = document.querySelector.bind(document);
 let addCartBtn = $('#add-cart-btn');
+let buyBtn = $('#buy-btn');
 let productList = $('#product-list');
 let sizes = $('.sizes');
 let cart = $('#cart');
@@ -64,6 +65,7 @@ function displayProduct(product) {
   $('p.description').textContent = product.description;
   $('#brand').textContent = product.brand;
   $('#product-name').textContent = product.name;
+  $('#ar-product-name').textContent = product.name;
 
   let specsTable = $('.specs table');
   specsTable.textContent = '';
