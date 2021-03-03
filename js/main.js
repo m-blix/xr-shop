@@ -29,6 +29,10 @@ async function init() {
     n++;
   });
 
+  buyBtn.addEventListener('click', function(e){
+
+  });
+
   productList.addEventListener('click', function(e){
     console.log(e);
     if (e.target.nodeName !== 'SPAN')

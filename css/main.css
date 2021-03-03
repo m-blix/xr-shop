@@ -183,7 +183,7 @@ model-viewer #ar-button-custom {
   border-radius: 4px;
   border: 1px solid #ccc;
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
   padding: 8px;
   font-size: 14px;
