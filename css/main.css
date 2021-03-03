@@ -247,7 +247,8 @@ model-viewer > #infobox .btn {
   float: right;
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  right: 14px;
+  font-size: 22px;
 }
 
 #overlay #ar-product-name {
@@ -256,4 +257,5 @@ model-viewer > #infobox .btn {
   max-width: 75%;
   float: left;
   margin-right: 10px;
+  border-radius: 5px;
 }
