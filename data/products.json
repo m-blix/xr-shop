@@ -4,6 +4,7 @@
       "category": "phone",
       "brand": "Samsung",
       "name": "Galaxy S10",
+      "shortName": "Galaxy S10",
       "description": "The next generation Samsung Galaxy S10 is as powerful, intelligent and intuitive as you are, providing endless possibilities and next- level power in performance, productivity, creation and design. The S10 features pro lenses to capture stunning photos, a powerful processor, and a long-lasting battery to optimize power and performance.",
       "specs": [
         "6.1\" Infinity Display, Quad HD+ Dynamic AMOLED",
@@ -19,6 +20,7 @@
       "category": "tv",
       "brand": "Samsung",
       "name": "Q70T QLED 4K UHD HDR Smart TV (2020)",
+      "shortName": "Q70T QLED 4K",
       "description": "Equipped with Quantum Dot Technology, this TV unleashes a massive spectrum of a billion shades of color. Samsung's powerful 4K Quantum processor automatically optimizes the picture to deliver a more immersive experience. A sleek, elegant, and minimalistic design from any angle draws you into the screen.",
       "specs": [
         "QUANTUM PROCESSOR 4K: This powerful processor uses deep learning AI to transform everything you watch into stunning 4K.",

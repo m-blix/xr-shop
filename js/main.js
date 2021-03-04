@@ -69,7 +69,7 @@ function displayProduct(product) {
   $('p.description').textContent = product.description;
   $('#brand').textContent = product.brand;
   $('#product-name').textContent = product.name;
-  $('#ar-product-name').textContent = product.name;
+  $('#ar-product-name').textContent = product.shortName;
 
   let specsTable = $('.specs table');
   specsTable.textContent = '';
