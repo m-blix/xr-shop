@@ -1,6 +1,10 @@
 'use strict';
 
 let $ = document.querySelector.bind(document);
+
+let modelViewer = $('model-viewer');
+let exitArButton = $('#exit-webxr-button-custom');
+
 let addCartBtn = $('#add-cart-btn');
 let buyBtn = $('#buy-btn');
 let productList = $('#product-list');
@@ -30,7 +34,8 @@ async function init() {
   });
 
   buyBtn.addEventListener('click', function(e){
-
+    console.log('Added to cart');
+    // do something
   });
 
   productList.addEventListener('click', function(e){
@@ -59,10 +64,20 @@ async function init() {
     $('.sizes .selected').classList.remove('selected');
     el.classList.add('selected');
 
-    let price = el.dataset.price;
-
-    $('#price-unit').textContent = price;
+    updateSize(el.dataset);
   });
+}
+
+function updateSize(dataset) {
+  let price = dataset.price;
+  $('#price-unit').textContent = price;
+
+  updateModel(dataset.model);
+}
+
+function updateModel(model) {
+  console.log('update model to: ' + model);
+  modelViewer.setAttribute('src', model);
 }
 
 function displayProduct(product) {
@@ -98,8 +113,6 @@ function displayProduct(product) {
   }
   $('#price-unit').textContent = price;
 
-
-  let modelViewer = $('model-viewer');
   modelViewer.setAttribute('src', product.model);
 }
 

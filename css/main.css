@@ -251,6 +251,12 @@ model-viewer > #infobox .btn {
   font-size: 22px;
 }
 
+
+#overlay #buy-btn:hover {
+  cursor: pointer;
+  background-color: #555;
+}
+
 #overlay #ar-product-name {
   background: white;
   padding: 9px 13px;
