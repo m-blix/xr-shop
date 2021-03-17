@@ -71,6 +71,7 @@ html, body {
 .heading {
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 6px;
+  margin-bottom: 16px;
 }
 
 .heading h3, .heading h4 {
@@ -109,7 +110,7 @@ html, body {
   padding: 6px 12px;
   display: inline-block;
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 22px;
 }
 
 .sizes > span:hover {
@@ -265,4 +266,15 @@ model-viewer > #infobox .btn {
   margin-right: 10px;
   border-radius: 5px;
   font-size: 20px;
+}
+
+#overlay #sizes-sel {
+  font-size: 20px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#overlay #sizes-sel option {
 }

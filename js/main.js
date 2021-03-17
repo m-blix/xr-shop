@@ -9,6 +9,7 @@ let addCartBtn = $('#add-cart-btn');
 let buyBtn = $('#buy-btn');
 let productList = $('#product-list');
 let sizes = $('.sizes');
+let sizesSel = $('#sizes-sel');
 let cart = $('#cart');
 
 const PRODUCT_DB = 'data/products.json';
@@ -66,6 +67,13 @@ async function init() {
 
     updateSize(el.dataset);
   });
+
+  sizesSel.addEventListener('change', function(e){
+    console.log(e);
+    console.log(this.value);
+    let option = sizesSel.children[this.value];
+    updateSize(option.dataset);
+  });
 }
 
 function updateSize(dataset) {
@@ -107,6 +115,13 @@ function displayProduct(product) {
       div.dataset.model = size.model;
       div.textContent = size.size;
       sizes.appendChild(div);
+
+      let option = document.createElement('option');
+      option.setAttribute('value', i);
+      option.textContent = size.size;
+      option.dataset.price = size.price;
+      option.dataset.model = size.model;
+      sizesSel.appendChild(option);
     }
     price = product.sizes[0].price;
     $('.sizes > span:first-child').classList.add('selected');
