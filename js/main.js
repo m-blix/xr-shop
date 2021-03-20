@@ -8,8 +8,10 @@ let exitArButton = $('#exit-webxr-button-custom');
 let addCartBtn = $('#add-cart-btn');
 let buyBtn = $('#buy-btn');
 let productList = $('#product-list');
+let priceEl = $('#price-unit');
 let sizes = $('.sizes');
 let sizesSel = $('#sizes-sel');
+let selectedSize = $('#selected-size');
 let cart = $('#cart');
 
 const PRODUCT_DB = 'data/products.json';
@@ -55,37 +57,68 @@ async function init() {
   let product = products[1];
   displayProduct(product);
 
-  sizes.addEventListener('click', function(e){
+  let sizeClick = function(e){
+    console.log('change size');
     console.log(e);
     if (e.target.nodeName !== 'SPAN')
       return;
 
     let el = e.target;
     console.log(el);
-    $('.sizes .selected').classList.remove('selected');
-    el.classList.add('selected');
 
     updateSize(el.dataset);
-  });
+  };
+  sizes.addEventListener('click', sizeClick);
+  sizesSel.addEventListener('click', sizeClick);
 
-  sizesSel.addEventListener('change', function(e){
-    console.log(e);
-    console.log(this.value);
-    let option = sizesSel.children[this.value];
-    updateSize(option.dataset);
+
+  selectedSize.addEventListener('click', function(e){
+    sizesSel.classList.toggle('hide');
+    return;
   });
 }
 
 function updateSize(dataset) {
-  let price = dataset.price;
-  $('#price-unit').textContent = price;
+  updatePrice(dataset.price);
+
+  selectedSize.textContent = dataset.size;
+
+  updateSelectedSize(dataset.size);
 
   updateModel(dataset.model);
+
+  sizesSel.classList.add('hide');
+}
+
+function updatePrice(price) {
+  $('#price-unit').textContent = price;
 }
 
 function updateModel(model) {
   console.log('update model to: ' + model);
   modelViewer.setAttribute('src', model);
+}
+
+function updateSelectedSize(size) {
+  if (sizes.querySelector('.selected')) {
+    sizes.querySelector('.selected').classList.remove('selected');
+  }
+  for (let i = 0; i < sizes.children.length; i++) {
+    let s = sizes.children[i];
+    if (size == s.dataset.size) {
+      s.classList.add('selected');
+    }
+  }
+
+  if (sizesSel.querySelector('.selected')) {
+    sizesSel.querySelector('.selected').classList.remove('selected');
+  }
+  for (let i = 0; i < sizesSel.children.length; i++) {
+    let s = sizesSel.children[i];
+    if (size == s.dataset.size) {
+      s.classList.add('selected');
+    }
+  }
 }
 
 function displayProduct(product) {
@@ -110,23 +143,25 @@ function displayProduct(product) {
   if (product.sizes) {
     for (let i = 0; i < product.sizes.length; i++) {
       let size = product.sizes[i];
-      var div = document.createElement('span');
+      let div = document.createElement('span');
       div.dataset.price = size.price;
       div.dataset.model = size.model;
+      div.dataset.size = size.size;
       div.textContent = size.size;
       sizes.appendChild(div);
 
-      let option = document.createElement('option');
-      option.setAttribute('value', i);
-      option.textContent = size.size;
-      option.dataset.price = size.price;
-      option.dataset.model = size.model;
-      sizesSel.appendChild(option);
+      let div2 = document.createElement('span');
+      div2.dataset.price = size.price;
+      div2.dataset.model = size.model;
+      div2.dataset.size = size.size;
+      div2.textContent = size.size;
+      sizesSel.appendChild(div2);
     }
     price = product.sizes[0].price;
-    $('.sizes > span:first-child').classList.add('selected');
+    selectedSize.textContent = product.sizes[0].size;
+    updateSelectedSize(product.sizes[0].size);
   }
-  $('#price-unit').textContent = price;
+  updatePrice(price);
 
   modelViewer.setAttribute('src', product.model);
 }

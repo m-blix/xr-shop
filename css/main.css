@@ -102,7 +102,7 @@ html, body {
   padding-bottom: 7px;
 }
 
-.sizes > span {
+.sizes > span, .sizes2 > span {
   background-color: #fff;
   margin-top: 0px;
   border: 1px solid #000;
@@ -113,13 +113,21 @@ html, body {
   font-size: 22px;
 }
 
-.sizes > span:hover {
+.sizes > span:hover, .sizes2 > span {
   cursor: pointer;
 }
 
-.sizes > span.selected {
+.sizes > span.selected, .sizes2 > span.selected {
   border-width: 2px;
   border-color: #1428a0;
+}
+
+.sizes2 > span {
+  font-size: 20px;
+}
+
+.sizes2 > span:last-child {
+  margin-right: 0px;
 }
 
 .btn {
@@ -269,12 +277,27 @@ model-viewer > #infobox .btn {
 }
 
 #overlay #sizes-sel {
+  position: absolute;
   font-size: 20px;
   padding: 8px;
   border: none;
   border-radius: 5px;
-  font-family: 'Open Sans', sans-serif;
+  bottom: 60px;
+  background-color: white;
+  left: 15%;
 }
 
-#overlay #sizes-sel option {
+#overlay #sizes-sel div {
+
+}
+
+#overlay #selected-size {
+  background-color: white;
+  min-width: 40px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 20px;
+  padding: 9px 13px;
+  display: inline-block;
 }
