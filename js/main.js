@@ -14,6 +14,8 @@ let sizesSel = $('#sizes-sel');
 let selectedSize = $('#selected-size');
 let cart = $('#cart');
 
+let annotation = $('#annotation');
+
 const PRODUCT_DB = 'data/products.json';
 
 let products = [];
@@ -82,6 +84,22 @@ function updateSize(dataset) {
   updatePrice(dataset.price);
 
   selectedSize.textContent = dataset.size;
+
+
+  annotation.textContent = dataset.size;
+
+  let size = modelViewer.getDimensions();
+  let sizes = {
+    '55"': 0.95,
+    '65"': 1.11,
+    '75"': 1.25,
+    '85"': 1.43
+  };
+  let y = sizes[dataset.size];
+  modelViewer.updateHotspot({
+      name: 'hotspot',
+      position: `0 ${y} 0`
+    });
 
   updateSelectedSize(dataset.size);
 

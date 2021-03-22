@@ -287,6 +287,8 @@ model-viewer > #infobox .btn {
   left: 15%;
 }
 
+
+
 #overlay #sizes-sel div {
 
 }
@@ -300,4 +302,19 @@ model-viewer > #infobox .btn {
   font-size: 20px;
   padding: 9px 13px;
   display: inline-block;
+}
+
+#overlay #selected-size:hover {
+  cursor: pointer;
+}
+
+#annotation {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.hotspot {
+  background-color: white !important;
+  border: 1px solid black;
+  border-radius: 3px;
 }
