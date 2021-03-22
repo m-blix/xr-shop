@@ -242,19 +242,19 @@ model-viewer > #infobox .btn {
   left: 0;
   padding: 10px;
   width: 100%;
-  opacity: 0.001;
+  opacity: 1.0;
 }
 
-model-viewer[ar-status="session-started"] #overlay {
-  opacity: 1.0;
+model-viewer[ar-status="not-presenting"] #overlay {
+  opacity: 0.001;
 }
 
 .hotspot {
-  opacity: 0.001;
+  opacity: 1.0;
 }
 
-model-viewer[ar-status="session-started"] .hotspot {
-  opacity: 1.0;
+model-viewer[ar-status="not-presenting"] .hotspot {
+  opacity: 0.001;
 }
 
 #overlay2 {
