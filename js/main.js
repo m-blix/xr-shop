@@ -111,10 +111,10 @@ function updateSize(dataset) {
 
   let size = modelViewer.getDimensions();
   let sizes = {
-    '55"': 0.86,
-    '65"': 1.01,
-    '75"': 1.14,
-    '85"': 1.30
+    '55"': 0.89,
+    '65"': 1.06,
+    '75"': 1.22,
+    '85"': 1.40
   };
   let y = sizes[dataset.size];
   modelViewer.updateHotspot({
