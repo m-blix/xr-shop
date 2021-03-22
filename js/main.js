@@ -40,7 +40,9 @@ async function init() {
 
   buyBtn.addEventListener('click', function(e){
     console.log('Added to cart');
-    // do something
+
+    showDialog();
+
   });
 
   productList.addEventListener('click', function(e){
@@ -78,6 +80,22 @@ async function init() {
     sizesSel.classList.toggle('hide');
     return;
   });
+}
+
+function showDialog() {
+  console.log('show dialog');
+
+  let el = $('#overlay2');
+  el.classList.remove('hide');
+  addCartBtn.click();
+
+  setTimeout(exitAR, 3000);
+}
+
+function exitAR() {
+  console.log('exit AR');
+
+  exitArButton.click();
 }
 
 function updateSize(dataset) {

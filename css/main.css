@@ -244,6 +244,18 @@ model-viewer > #infobox .btn {
   width: 100%;
 }
 
+#overlay2 {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 150px);
+  padding: 10px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 #overlay #buy-btn {
   border: 1px solid black;
   background-color: white;
@@ -317,4 +329,11 @@ model-viewer > #infobox .btn {
   background-color: white !important;
   border: 1px solid black;
   border-radius: 3px;
+}
+
+#exit-webxr-button-custom {
+  opacity: 0.1;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
