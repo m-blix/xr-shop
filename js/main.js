@@ -96,6 +96,9 @@ function exitAR() {
   console.log('exit AR');
 
   exitArButton.click();
+
+  let el = $('#overlay2');
+  el.classList.add('hide');
 }
 
 function updateSize(dataset) {
@@ -108,10 +111,10 @@ function updateSize(dataset) {
 
   let size = modelViewer.getDimensions();
   let sizes = {
-    '55"': 0.95,
-    '65"': 1.11,
-    '75"': 1.25,
-    '85"': 1.43
+    '55"': 0.86,
+    '65"': 1.01,
+    '75"': 1.14,
+    '85"': 1.30
   };
   let y = sizes[dataset.size];
   modelViewer.updateHotspot({
