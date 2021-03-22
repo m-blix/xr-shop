@@ -267,6 +267,7 @@ model-viewer[ar-status="not-presenting"] .hotspot {
   border: 1px solid black;
   border-radius: 5px;
   margin-top: 10px;
+  text-align: center;
 }
 
 #overlay #buy-btn {
@@ -333,15 +334,20 @@ model-viewer[ar-status="not-presenting"] .hotspot {
   cursor: pointer;
 }
 
-#annotation {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+#annotation3 {
+  font-size: 22px !important;
 }
 
 .hotspot {
   background-color: white !important;
-  border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: Futura, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 #exit-webxr-button-custom {

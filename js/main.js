@@ -15,6 +15,7 @@ let selectedSize = $('#selected-size');
 let cart = $('#cart');
 
 let annotation = $('#annotation');
+let annotation2 = $('#annotation2');
 
 const PRODUCT_DB = 'data/products.json';
 
@@ -104,10 +105,9 @@ function exitAR() {
 function updateSize(dataset) {
   updatePrice(dataset.price);
 
+  updateModel(dataset.model);
+
   selectedSize.textContent = dataset.size;
-
-
-  annotation.textContent = dataset.size;
 
   let size = modelViewer.getDimensions();
   let sizes = {
@@ -116,15 +116,42 @@ function updateSize(dataset) {
     '75"': 1.22,
     '85"': 1.40
   };
+  let sizesX = {
+    '55"': 0.89,
+    '65"': 1.02,
+    '75"': 1.13,
+    '85"': 1.28
+  };
+
+  let dims = {
+    '55"': ['48"', '27"'],
+    '65"': ['57"', '32"'],
+    '75"': ['65"', '37"'],
+    '85"': ['74"', '42"']
+  };
+
   let y = sizes[dataset.size];
+  let x = sizesX[dataset.size];
+
+  annotation.textContent = dims[dataset.size][0];
+  annotation2.textContent = dims[dataset.size][1];
+  annotation3.textContent = dataset.size;
+
   modelViewer.updateHotspot({
-      name: 'hotspot',
-      position: `0 ${y} 0`
+      name: 'hotspot-x',
+      position: `0 -0.1 0`
+    });
+  modelViewer.updateHotspot({
+      name: 'hotspot-y',
+      position: `-${x} ${y/2} 0`
     });
 
-  updateSelectedSize(dataset.size);
+  modelViewer.updateHotspot({
+    name: 'hotspot-label',
+    position: `0 ${y} 0`
+  });
 
-  updateModel(dataset.model);
+  updateSelectedSize(dataset.size);
 
   sizesSel.classList.add('hide');
 }
