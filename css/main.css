@@ -253,7 +253,7 @@ model-viewer[ar-status="not-presenting"] #overlay {
   opacity: 1.0;
 }
 
-model-viewer[ar-status="not-presenting"] .hotspot, model-viewer[ar-status="not-presenting"] .hotspot2 {
+model-viewer[ar-status="not-presenting"] .hotspot,  model-viewer[ar-status="not-presenting"] .hotspot2 {
   opacity: 0.001;
 }
 
