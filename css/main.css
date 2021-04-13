@@ -176,6 +176,33 @@ html, body {
   display: none !important;
 }
 
+#hmd-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #eee;
+
+  font-size: 14px;
+  padding-top: 12px;
+}
+
+#hmd-btn:hover {
+  cursor: pointer;
+}
+
+#hmd-btn.connected {
+  border-color: #000099;
+  color: #000099;
+  font-weight: bold;
+  background-color: #b0d0f5;
+}
+
 /* AR view: overlays */
 
 /* This keeps child nodes hidden while the element loads */

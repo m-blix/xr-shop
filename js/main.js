@@ -23,6 +23,7 @@ let products = [];
 
 let n = 0;
 
+var hmdConnected = false;
 
 async function init() {
   addCartBtn.addEventListener('click', function(e){
@@ -81,6 +82,8 @@ async function init() {
     sizesSel.classList.toggle('hide');
     return;
   });
+
+  setupHMDButton();
 }
 
 function showDialog() {
@@ -230,6 +233,16 @@ function displayProduct(product) {
   updatePrice(price);
 
   modelViewer.setAttribute('src', product.model);
+}
+
+// button for toggling HMD connection
+function setupHMDButton() {
+  let hmdBtn = $('#hmd-btn');
+  hmdBtn.addEventListener('click', function(e){
+    hmdConnected = !hmdConnected;
+    console.log('hmd button clicked: connected: ' + hmdConnected);
+    hmdBtn.classList.toggle('connected');
+  });
 }
 
 //
