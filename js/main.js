@@ -3,6 +3,8 @@
 let $ = document.querySelector.bind(document);
 
 let modelViewer = $('model-viewer');
+let mvEnterArButton = $('#ar-button-custom');
+let enterArBtn = $('#enter-ar-btn');
 let exitArButton = $('#exit-webxr-button-custom');
 
 let addCartBtn = $('#add-cart-btn');
@@ -26,6 +28,22 @@ let n = 0;
 var hmdConnected = false;
 
 async function init() {
+  enterArBtn.addEventListener('click', function(e){
+    console.log('enter AR button');
+
+    if (hmdConnected) {
+      console.log('HMD connected: display on headset');
+      let url = new URL('model-view.html', document.baseURI).href;
+      console.log(url);
+      let intent = createIntentLink(url);
+      window.location.href = intent;
+    } else {
+      console.log('No HMD: WebXR mobile');
+      modelViewer.activateAR();
+      //mvEnterArButton.click();
+    }
+  });
+
   addCartBtn.addEventListener('click', function(e){
     cart.classList.toggle('full');
 
@@ -240,9 +258,19 @@ function setupHMDButton() {
   let hmdBtn = $('#hmd-btn');
   hmdBtn.addEventListener('click', function(e){
     hmdConnected = !hmdConnected;
-    console.log('hmd button clicked: connected: ' + hmdConnected);
+    console.log('HMD button clicked: connected: ' + hmdConnected);
     hmdBtn.classList.toggle('connected');
   });
+}
+
+function createIntentLink(url) {
+  const PKG = 'com.samsung.app.arinternet';
+  const SCHEME = 'samsunginternetar';
+  const ACTION = 'android.intent.action.VIEW';
+
+  let intent = `intent://open/?url=${url}#Intent;scheme=${SCHEME};package=${PKG};action=${ACTION};end`;
+
+  return intent;
 }
 
 //
