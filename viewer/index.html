@@ -51,6 +51,10 @@ function init() {
   light.position.set( 0.5, 1, 0.25 );
   scene.add( light );
 
+  const directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+  directionalLight.position.set( 0, 5, 10 );
+  scene.add( directionalLight );
+
   //
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
@@ -73,13 +77,13 @@ function init() {
     if ( reticle.visible ) {
 
 
-      //placeModel( reticle );
+      placeModel( reticle );
 
       const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
       const mesh = new THREE.Mesh( geometry, material );
       mesh.position.setFromMatrixPosition( reticle.matrix );
       mesh.scale.y = Math.random() * 2 + 1;
-      scene.add( mesh );
+      //scene.add( mesh );
 
     }
 
@@ -134,11 +138,10 @@ function placeModel( reticle ) {
     return;
   }
 
-  model.position.setFromMatrixPosition( reticle.matrix );
-  model.translateY( modelHeight );
-  scene.add( model );
+  modelContainer.position.set( 0, 0, 0 );
 
   modelPlaced = true;
+
 
 }
 
@@ -203,7 +206,10 @@ function render( timestamp, frame ) {
         const hit = hitTestResults[ 0 ];
 
         reticle.visible = true;
-        reticle.matrix.fromArray( hit.getPose( referenceSpace ).transform.matrix );
+
+        if ( !modelPlaced ) {
+          reticle.matrix.fromArray( hit.getPose( referenceSpace ).transform.matrix );
+        }
 
       } else {
 
@@ -212,6 +218,12 @@ function render( timestamp, frame ) {
       }
 
     }
+
+  }
+
+  if ( modelPlaced ) {
+
+    reticle.visible = false;
 
   }
 
