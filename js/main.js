@@ -25,7 +25,7 @@ let products = [];
 
 let n = 0;
 
-var hmdConnected = false;
+var hmdConnected = true;
 
 async function init() {
   enterArBtn.addEventListener('click', function(e){
