@@ -264,7 +264,8 @@ function setupHMDButton() {
 }
 
 function createIntentLink(url) {
-  const PKG = 'com.samsung.app.arinternet';
+  //const PKG = 'com.samsung.app.arinternet';
+  const PKG = 'com.samsung.sceneapp.arinternet';
   const SCHEME = 'samsunginternetar';
   const ACTION = 'android.intent.action.VIEW';
 
